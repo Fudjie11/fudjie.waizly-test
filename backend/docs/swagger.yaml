@@ -1,0 +1,3203 @@
+definitions:
+  bluebird_tech_kirim_protobuf_auth_v1.AppAccessDto:
+    properties:
+      access:
+        type: boolean
+      app_domain:
+        type: string
+      roles:
+        items:
+          $ref: '#/definitions/v1.PositionRoles'
+        type: array
+    type: object
+  bluebird_tech_kirim_protobuf_auth_v1.Pagination:
+    properties:
+      limit:
+        type: integer
+      offset:
+        type: integer
+      page:
+        type: integer
+    type: object
+  bluebird_tech_kirim_protobuf_auth_v1.PaginationWithTotalRows:
+    properties:
+      limit:
+        type: integer
+      offset:
+        type: integer
+      page:
+        type: integer
+      total_rows:
+        type: integer
+    type: object
+  bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus:
+    properties:
+      error_code:
+        type: string
+      error_message:
+        type: string
+      latency:
+        type: integer
+      response_time:
+        type: integer
+      success:
+        type: boolean
+    type: object
+  helper.JSONResponse:
+    properties:
+      data: {}
+      pagination: {}
+      response_status: {}
+    type: object
+  v1.AccountActivationTokenCheckerRequest:
+    properties:
+      token_code:
+        type: string
+    type: object
+  v1.AppAccess:
+    properties:
+      access:
+        type: boolean
+      app_domain:
+        type: string
+      user_roles:
+        items:
+          $ref: '#/definitions/v1.UserRoles'
+        type: array
+    type: object
+  v1.ChangePasswordRequest:
+    properties:
+      password:
+        type: string
+      password_confirmation:
+        type: string
+    type: object
+  v1.ChangePasswordResponse:
+    properties:
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CpAccountActivationRequest:
+    properties:
+      password:
+        type: string
+      password_confirmation:
+        type: string
+      token_code:
+        description: 'TODO : REMOVE THIS THEN CHANGE WITH OTP CODE'
+        type: string
+    type: object
+  v1.CpAccountActivationResponse:
+    properties:
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CpAccountActivationTokenCheckerData:
+    properties:
+      company_name:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      industry_name:
+        type: string
+      is_token_available:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  v1.CpAccountActivationTokenCheckerResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.CpAccountActivationTokenCheckerData'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CpRegistrationRequest:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      password:
+        type: string
+      phone_number:
+        type: string
+      user_id:
+        description: 'TODO : REMOVE THIS THEN CHANGE WITH OTP CODE'
+        type: string
+    type: object
+  v1.CpRegistrationResponse:
+    properties:
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CpRole:
+    properties:
+      app_domain:
+        type: string
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      description:
+        type: string
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      role_name:
+        type: string
+      row_version:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+      user_id:
+        type: string
+    type: object
+  v1.CpRolePermission:
+    properties:
+      app_domain:
+        type: string
+      description:
+        type: string
+      permission_group:
+        type: string
+      permission_id:
+        type: string
+      permission_name:
+        type: string
+      permission_sub_group:
+        type: string
+    type: object
+  v1.CpUser:
+    properties:
+      branch_name:
+        type: string
+      company_name:
+        type: string
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      customer_id:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      full_name:
+        type: string
+      industry_name:
+        type: string
+      is_deleted:
+        type: boolean
+      is_owner:
+        type: boolean
+      is_superadmin_user:
+        type: boolean
+      is_system_user:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      role_name:
+        type: string
+      row_version:
+        type: string
+      status:
+        type: string
+      tenant_id:
+        type: string
+      unique_email:
+        type: string
+      unique_phone_number:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+      user_id:
+        type: string
+      user_name:
+        type: string
+    type: object
+  v1.CraeteUpdateAppAccessDto:
+    properties:
+      access:
+        type: boolean
+      app_domain:
+        type: string
+      role_ids:
+        items:
+          type: string
+        type: array
+    type: object
+  v1.CreateAndUpdateUserRole:
+    properties:
+      access:
+        type: boolean
+      app_domain:
+        type: string
+      role_ids:
+        items:
+          type: string
+        type: array
+    type: object
+  v1.CreateCpUserRequest:
+    properties:
+      actor_user_id:
+        type: string
+      branch_id:
+        type: string
+      customer_id:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      is_owner:
+        type: boolean
+      is_superadmin_user:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      role_id:
+        type: string
+      tenant_id:
+        type: string
+      user_name:
+        type: string
+    type: object
+  v1.CreateCpUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataCpUserResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CreateOaCustomerRequest:
+    properties:
+      actor_user_id:
+        type: string
+      client_id:
+        type: string
+      customer_id:
+        type: string
+    type: object
+  v1.CreateOaCustomerResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CreateTmsEmployeePositionToRoleRequest:
+    properties:
+      actor_user_id:
+        type: string
+      app_access:
+        items:
+          $ref: '#/definitions/v1.CraeteUpdateAppAccessDto'
+        type: array
+      employee_position_id:
+        type: string
+    type: object
+  v1.CreateTmsEmployeePositionToRoleResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CreateTmsRoleRequest:
+    properties:
+      actor_user_id:
+        type: string
+      app_domain:
+        type: string
+      description:
+        type: string
+      is_active:
+        type: boolean
+      permission_ids:
+        items:
+          type: string
+        type: array
+      role_name:
+        type: string
+    type: object
+  v1.CreateTmsRoleResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CreateTmsUserRequest:
+    properties:
+      actor_user_id:
+        type: string
+      app_access:
+        items:
+          $ref: '#/definitions/v1.CreateAndUpdateUserRole'
+        type: array
+      branch_ids:
+        items:
+          type: string
+        type: array
+      email:
+        type: string
+      employee_id:
+        type: string
+      employee_position_id:
+        type: string
+      first_name:
+        type: string
+      is_all_branches:
+        type: boolean
+      is_internal:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      use_role_from_employee_position:
+        type: boolean
+      user_name:
+        type: string
+      vendor:
+        type: string
+    type: object
+  v1.CreateTmsUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataTmsUserResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CustomerPortalLoginResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.CustomerPortalLoginResponseData'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.CustomerPortalLoginResponseData:
+    properties:
+      access_token:
+        type: string
+      customer_id:
+        type: string
+      email:
+        type: string
+      expires_in:
+        type: integer
+      name:
+        type: string
+      refresh_token:
+        type: string
+      scope:
+        type: string
+      tenant_id:
+        type: string
+      token_type:
+        type: string
+      user_id:
+        type: string
+      user_roles:
+        $ref: '#/definitions/v1.LoginUserRole'
+    type: object
+  v1.DataCpUserResponse:
+    properties:
+      activation_url:
+        description: 'TODO: Url will send to email'
+        type: string
+      data_id:
+        type: string
+    type: object
+  v1.DataIdResponse:
+    properties:
+      data_id:
+        type: string
+    type: object
+  v1.DataTmsUserResponse:
+    properties:
+      activation_url:
+        description: 'TODO: Url will send to email'
+        type: string
+      data_id:
+        type: string
+    type: object
+  v1.DeleteCpUserRequest:
+    properties:
+      actor_user_id:
+        type: string
+      row_version:
+        type: string
+      user_id:
+        type: string
+    type: object
+  v1.DeleteCpUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.DeleteOaCustomerRequest:
+    properties:
+      actor_user_id:
+        type: string
+      customer_id:
+        type: string
+      row_version:
+        type: string
+    type: object
+  v1.DeleteOaCustomerResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.DeleteTmsEmployeePositionToRoleRequest:
+    properties:
+      actor_user_id:
+        type: string
+      employee_position_id:
+        type: string
+    type: object
+  v1.DeleteTmsEmployeePositionToRoleResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.DeleteTmsRoleRequest:
+    properties:
+      actor_user_id:
+        type: string
+      role_id:
+        type: string
+      row_version:
+        type: string
+    type: object
+  v1.DeleteTmsRoleResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.DeleteTmsUserRequest:
+    properties:
+      actor_user_id:
+        type: string
+      row_version:
+        type: string
+      user_id:
+        type: string
+    type: object
+  v1.DeleteTmsUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.DetailCpRole:
+    properties:
+      app_domain:
+        type: string
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      description:
+        type: string
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      permission:
+        items:
+          $ref: '#/definitions/v1.CpRolePermission'
+        type: array
+      role_name:
+        type: string
+      row_version:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+      user_id:
+        type: string
+    type: object
+  v1.DetailTmsRole:
+    properties:
+      app_domain:
+        type: string
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      description:
+        type: string
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      permission:
+        items:
+          $ref: '#/definitions/v1.RolePermission'
+        type: array
+      role_id:
+        type: string
+      role_name:
+        type: string
+      row_version:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+    type: object
+  v1.DetailTmsUser:
+    properties:
+      app_access:
+        items:
+          $ref: '#/definitions/v1.AppAccess'
+        type: array
+      branches:
+        items:
+          $ref: '#/definitions/v1.UserBranch'
+        type: array
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      driver_app_access:
+        type: boolean
+      email:
+        type: string
+      employee_id:
+        type: string
+      employee_info:
+        $ref: '#/definitions/v1.UserEmployeeInfo'
+      employee_position_id:
+        type: string
+      first_name:
+        type: string
+      full_name:
+        type: string
+      is_all_branches:
+        type: boolean
+      is_deleted:
+        type: boolean
+      is_superadmin_user:
+        type: boolean
+      is_system_user:
+        type: boolean
+      last_name:
+        type: string
+      main_app_access:
+        type: boolean
+      phone_number:
+        type: string
+      row_version:
+        type: string
+      status:
+        type: string
+      unique_email:
+        type: string
+      unique_phone_number:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+      use_role_from_employee_position:
+        type: boolean
+      user_id:
+        type: string
+      user_name:
+        type: string
+      vendor:
+        type: string
+    type: object
+  v1.EmployeeAccountActivationCheckerData:
+    properties:
+      user_status:
+        type: string
+    type: object
+  v1.EmployeeAccountActivationCheckerRequest:
+    properties:
+      email:
+        type: string
+    type: object
+  v1.EmployeeAccountActivationCheckerResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.EmployeeAccountActivationCheckerData'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.EmployeeAccountActivationTokenCheckerData:
+    properties:
+      email:
+        type: string
+      employee_number:
+        type: string
+      is_token_available:
+        type: boolean
+      phone_number:
+        type: string
+    type: object
+  v1.EmployeeAccountActivationTokenCheckerResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.EmployeeAccountActivationTokenCheckerData'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.ExternalEmployeeAccountActivationRequest:
+    properties:
+      password:
+        type: string
+      password_confirmation:
+        type: string
+      token_code:
+        description: 'TODO : REMOVE THIS THEN CHANGE WITH OTP CODE'
+        type: string
+    type: object
+  v1.ExternalEmployeeAccountActivationResponse:
+    properties:
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GenerateResetPasswordLinkData:
+    properties:
+      reset_password_url:
+        type: string
+    type: object
+  v1.GenerateResetPasswordLinkRequest:
+    properties:
+      email_or_phone_number:
+        type: string
+    type: object
+  v1.GenerateResetPasswordLinkResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.GenerateResetPasswordLinkData'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetCpRolesFilter:
+    properties:
+      is_active:
+        type: boolean
+      role_name:
+        type: string
+    type: object
+  v1.GetCpRolesRequest:
+    properties:
+      filter:
+        $ref: '#/definitions/v1.GetCpRolesFilter'
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.Pagination'
+      sort:
+        $ref: '#/definitions/v1.GetCpRolesSort'
+    type: object
+  v1.GetCpRolesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.CpRole'
+        type: array
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.PaginationWithTotalRows'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetCpRolesSort:
+    properties:
+      created_time_utc:
+        type: string
+      role_name:
+        type: string
+      updated_time_utc:
+        type: string
+    type: object
+  v1.GetCpUsersFilter:
+    properties:
+      full_name:
+        type: string
+      is_active:
+        type: boolean
+      status:
+        type: string
+      user_name:
+        type: string
+    type: object
+  v1.GetCpUsersRequest:
+    properties:
+      filter:
+        $ref: '#/definitions/v1.GetCpUsersFilter'
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.Pagination'
+      sort:
+        $ref: '#/definitions/v1.GetCpUsersSort'
+    type: object
+  v1.GetCpUsersResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.CpUser'
+        type: array
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.PaginationWithTotalRows'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetCpUsersSort:
+    properties:
+      created_time_utc:
+        type: string
+      full_name:
+        type: string
+      updated_time_utc:
+        type: string
+      user_name:
+        type: string
+    type: object
+  v1.GetDetailCpRolesbyIdResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DetailCpRole'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetDetailCpUsersbyIdResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.CpUser'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetDetailTmsRolesbyIdResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DetailTmsRole'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetDetailTmsUsersbyIdResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DetailTmsUser'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetOaCustomersFilter:
+    properties:
+      client_id:
+        type: string
+      customer_id:
+        type: string
+    type: object
+  v1.GetOaCustomersRequest:
+    properties:
+      filter:
+        $ref: '#/definitions/v1.GetOaCustomersFilter'
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.Pagination'
+      sort:
+        $ref: '#/definitions/v1.GetOaCustomersSort'
+    type: object
+  v1.GetOaCustomersResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.OaCustomer'
+        type: array
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.PaginationWithTotalRows'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetOaCustomersSort:
+    properties:
+      client_id:
+        type: string
+      created_time_utc:
+        type: string
+      updated_time_utc:
+        type: string
+    type: object
+  v1.GetOaCustomersbyIdResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.OaCustomer'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetPermissionFilter:
+    properties:
+      app_domain:
+        type: string
+      permission_name:
+        type: string
+    type: object
+  v1.GetPermissionSort:
+    properties:
+      permission_name:
+        type: string
+    type: object
+  v1.GetProfileUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.GetProfileUserResponseData'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetProfileUserResponseData:
+    properties:
+      access_token:
+        type: string
+      app_access:
+        items:
+          $ref: '#/definitions/v1.TmsLoginAppAccess'
+        type: array
+      branches:
+        items:
+          $ref: '#/definitions/v1.UserBranch'
+        type: array
+      email:
+        type: string
+      expires_in:
+        type: integer
+      name:
+        type: string
+      refresh_token:
+        type: string
+      scope:
+        type: string
+      token_type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  v1.GetTmsEmployeePositionToRoleResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.TmsEmployeePositionToRole'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetTmsPermissionsRequest:
+    properties:
+      filter:
+        $ref: '#/definitions/v1.GetPermissionFilter'
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.Pagination'
+      sort:
+        $ref: '#/definitions/v1.GetPermissionSort'
+    type: object
+  v1.GetTmsPermissionsResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.Permission'
+        type: array
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.PaginationWithTotalRows'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetTmsRolesFilter:
+    properties:
+      is_active:
+        type: boolean
+      role_name:
+        type: string
+    type: object
+  v1.GetTmsRolesRequest:
+    properties:
+      filter:
+        $ref: '#/definitions/v1.GetTmsRolesFilter'
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.Pagination'
+      sort:
+        $ref: '#/definitions/v1.GetTmsRolesSort'
+    type: object
+  v1.GetTmsRolesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.TmsRole'
+        type: array
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.PaginationWithTotalRows'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetTmsRolesSort:
+    properties:
+      created_time_utc:
+        type: string
+      role_name:
+        type: string
+      updated_time_utc:
+        type: string
+    type: object
+  v1.GetTmsUsersFilter:
+    properties:
+      email:
+        type: string
+      employee_number:
+        type: string
+      full_name:
+        type: string
+      is_active:
+        type: boolean
+      phone_number:
+        type: string
+      status:
+        type: string
+      user_name:
+        type: string
+    type: object
+  v1.GetTmsUsersRequest:
+    properties:
+      filter:
+        $ref: '#/definitions/v1.GetTmsUsersFilter'
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.Pagination'
+      sort:
+        $ref: '#/definitions/v1.GetTmsUsersSort'
+    type: object
+  v1.GetTmsUsersResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.TmsUser'
+        type: array
+      pagination:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.PaginationWithTotalRows'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.GetTmsUsersSort:
+    properties:
+      created_time_utc:
+        type: string
+      full_name:
+        type: string
+      updated_time_utc:
+        type: string
+      user_name:
+        type: string
+    type: object
+  v1.InternalEmployeeAccountActivationRequest:
+    properties:
+      password:
+        type: string
+      token_code:
+        type: string
+    type: object
+  v1.InternalEmployeeAccountActivationResponse:
+    properties:
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.LoginPermission:
+    properties:
+      permission_group:
+        type: string
+      permission_id:
+        type: string
+      permission_name:
+        type: string
+      permission_sub_group:
+        type: string
+    type: object
+  v1.LoginRequest:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  v1.LoginUserRole:
+    properties:
+      permissions:
+        items:
+          $ref: '#/definitions/v1.LoginPermission'
+        type: array
+      role_id:
+        type: string
+      role_name:
+        type: string
+    type: object
+  v1.OaCustomer:
+    properties:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      customer_id:
+        type: string
+      enabled:
+        type: boolean
+      id_of_keycloak_client:
+        type: string
+      row_version:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+    type: object
+  v1.OauthUserPermission:
+    properties:
+      absolute_path:
+        type: string
+      action:
+        type: string
+      app_id:
+        type: string
+      effect:
+        type: string
+      menu_id:
+        type: string
+      method:
+        type: string
+      name:
+        type: string
+    type: object
+  v1.OauthUserRole:
+    properties:
+      app_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  v1.Permission:
+    properties:
+      app_domain:
+        type: string
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      description:
+        type: string
+      is_deleted:
+        type: boolean
+      permission_group:
+        type: string
+      permission_id:
+        type: string
+      permission_name:
+        type: string
+      permission_sub_group:
+        type: string
+      row_version:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+    type: object
+  v1.PositionRoles:
+    properties:
+      description:
+        type: string
+      role_id:
+        type: string
+      role_name:
+        type: string
+    type: object
+  v1.RequestGetUserPermissionByRoleIds:
+    properties:
+      role_ids:
+        items:
+          type: string
+        type: array
+    type: object
+  v1.ResetPasswordRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      password_confirmation:
+        type: string
+      phone_number:
+        type: string
+      token_code:
+        type: string
+    type: object
+  v1.ResetPasswordResponse:
+    properties:
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.ResetPasswordTokenCheckerData:
+    properties:
+      email:
+        type: string
+      is_token_available:
+        type: boolean
+      phone_number:
+        type: string
+    type: object
+  v1.ResetPasswordTokenCheckerRequest:
+    properties:
+      token_code:
+        type: string
+    type: object
+  v1.ResetPasswordTokenCheckerResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.ResetPasswordTokenCheckerData'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.ResponseGetUserPermissionByRoleIds:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.OauthUserPermission'
+        type: array
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.ResponseGetUserRoles:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.OauthUserRole'
+        type: array
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.RolePermission:
+    properties:
+      app_domain:
+        type: string
+      description:
+        type: string
+      permission_group:
+        type: string
+      permission_id:
+        type: string
+      permission_name:
+        type: string
+      permission_sub_group:
+        type: string
+    type: object
+  v1.TmsEmployeePositionToRole:
+    properties:
+      app_access:
+        items:
+          $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.AppAccessDto'
+        type: array
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      employee_position_id:
+        type: string
+      row_version:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+    type: object
+  v1.TmsLoginAppAccess:
+    properties:
+      access:
+        type: boolean
+      app_domain:
+        type: string
+      user_roles:
+        items:
+          $ref: '#/definitions/v1.LoginUserRole'
+        type: array
+    type: object
+  v1.TmsLoginResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.TmsLoginResponseData'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.TmsLoginResponseData:
+    properties:
+      access_token:
+        type: string
+      app_access:
+        items:
+          $ref: '#/definitions/v1.TmsLoginAppAccess'
+        type: array
+      email:
+        type: string
+      employee_id:
+        type: string
+      expires_in:
+        type: integer
+      name:
+        type: string
+      refresh_token:
+        type: string
+      scope:
+        type: string
+      token_type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  v1.TmsRole:
+    properties:
+      app_domain:
+        type: string
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      description:
+        type: string
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      role_id:
+        type: string
+      role_name:
+        type: string
+      row_version:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+    type: object
+  v1.TmsUser:
+    properties:
+      created_time_utc:
+        type: string
+      created_user_id:
+        type: string
+      driver_app_access:
+        type: boolean
+      email:
+        type: string
+      employee_id:
+        type: string
+      employee_position_id:
+        type: string
+      first_name:
+        type: string
+      full_name:
+        type: string
+      is_all_branches:
+        type: boolean
+      is_deleted:
+        type: boolean
+      is_superadmin_user:
+        type: boolean
+      is_system_user:
+        type: boolean
+      last_name:
+        type: string
+      main_app_access:
+        type: boolean
+      phone_number:
+        type: string
+      row_version:
+        type: string
+      status:
+        type: string
+      unique_email:
+        type: string
+      unique_phone_number:
+        type: string
+      updated_time_utc:
+        type: string
+      updated_user_id:
+        type: string
+      use_role_from_employee_position:
+        type: boolean
+      user_id:
+        type: string
+      user_name:
+        type: string
+      vendor:
+        type: string
+    type: object
+  v1.UpdateCpUserRequest:
+    properties:
+      actor_user_id:
+        type: string
+      branch_id:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      is_send_confirmation_link:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      role_id:
+        type: string
+      row_version:
+        type: string
+      status:
+        type: string
+      user_id:
+        type: string
+      user_name:
+        type: string
+    type: object
+  v1.UpdateCpUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataCpUserResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.UpdateOaCustomerRequest:
+    properties:
+      actor_user_id:
+        type: string
+      client_id:
+        type: string
+      customer_id:
+        type: string
+      enabled:
+        type: boolean
+      row_version:
+        type: string
+    type: object
+  v1.UpdatePersonalDataCpUserRequest:
+    properties:
+      actor_user_id:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      row_version:
+        type: string
+      user_id:
+        type: string
+    type: object
+  v1.UpdatePersonalDataCpUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.UpdatePersonalDataTmsUserRequest:
+    properties:
+      actor_user_id:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      row_version:
+        type: string
+      user_id:
+        type: string
+    type: object
+  v1.UpdatePersonalDataTmsUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.UpdateTmsEmployeePositionToRoleRequest:
+    properties:
+      actor_user_id:
+        type: string
+      app_access:
+        items:
+          $ref: '#/definitions/v1.CraeteUpdateAppAccessDto'
+        type: array
+      employee_position_id:
+        type: string
+    type: object
+  v1.UpdateTmsEmployeePositionToRoleResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataIdResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.UpdateTmsRoleRequest:
+    properties:
+      actor_user_id:
+        type: string
+      app_domain:
+        type: string
+      description:
+        type: string
+      is_active:
+        type: boolean
+      permission_ids:
+        items:
+          type: string
+        type: array
+      role_id:
+        type: string
+      role_name:
+        type: string
+      row_version:
+        type: string
+    type: object
+  v1.UpdateTmsUserRequest:
+    properties:
+      actor_user_id:
+        type: string
+      app_access:
+        items:
+          $ref: '#/definitions/v1.CreateAndUpdateUserRole'
+        type: array
+      branch_ids:
+        items:
+          type: string
+        type: array
+      email:
+        type: string
+      employee_id:
+        type: string
+      employee_position_id:
+        type: string
+      first_name:
+        type: string
+      is_all_branches:
+        type: boolean
+      is_send_confirmation_link:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      row_version:
+        type: string
+      status:
+        type: string
+      use_role_from_employee_position:
+        type: boolean
+      user_id:
+        type: string
+      user_name:
+        type: string
+      vendor:
+        type: string
+    type: object
+  v1.UpdateTmsUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/v1.DataTmsUserResponse'
+      response_status:
+        $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+    type: object
+  v1.UserBranch:
+    properties:
+      branch_code:
+        type: string
+      branch_id:
+        type: string
+      branch_name:
+        type: string
+    type: object
+  v1.UserEmployeeInfo:
+    properties:
+      employee_id:
+        type: string
+      employee_number:
+        type: string
+      employee_position_name:
+        type: string
+      gender:
+        type: string
+      id_card_number:
+        type: string
+    type: object
+  v1.UserRoles:
+    properties:
+      app_domain:
+        type: string
+      description:
+        type: string
+      role_id:
+        type: string
+      role_name:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Transport Management System.
+  title: Transport Management System
+paths:
+  /api/main/v1/auth/change-password:
+    post:
+      consumes:
+      - application/json
+      description: Change Password.
+      parameters:
+      - description: App ID
+        in: header
+        name: x-app-id
+        required: true
+        type: string
+      - description: User ID
+        format: uuid
+        in: header
+        name: x-user-id
+        required: true
+        type: string
+      - description: Change Password Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.ChangePasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Change Password Successful
+          schema:
+            $ref: '#/definitions/v1.ChangePasswordResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Change Password
+      tags:
+      - OAuth
+  /api/main/v1/auth/customer-portal/account-activation:
+    post:
+      consumes:
+      - application/json
+      description: Customer Portal Account activation.
+      parameters:
+      - description: Account Activation Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.CpAccountActivationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account Activation Successful
+          schema:
+            $ref: '#/definitions/v1.CpAccountActivationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Customer Portal Account activation
+      tags:
+      - Registration
+  /api/main/v1/auth/customer-portal/account-activation/token-checker:
+    post:
+      consumes:
+      - application/json
+      description: Customer Portal Account Activation token checker for check token
+        code is availabe or not.
+      parameters:
+      - description: Customer Portal Account Activation Token Checker Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.AccountActivationTokenCheckerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Customer Portal Account Activation Token Checker Request Successful
+          schema:
+            $ref: '#/definitions/v1.CpAccountActivationTokenCheckerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Customer Portal Account Activation Token Checker
+      tags:
+      - Registration
+  /api/main/v1/auth/customer-portal/login:
+    post:
+      consumes:
+      - application/json
+      description: Authenticates customer portal users and provides an access token
+        upon successful authentication.
+      parameters:
+      - description: Login Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login Successful
+          schema:
+            $ref: '#/definitions/v1.CustomerPortalLoginResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: customer portal user login
+      tags:
+      - OAuth
+  /api/main/v1/auth/customer-portal/reset-password:
+    post:
+      consumes:
+      - application/json
+      description: Customer Portal Reset Password.
+      parameters:
+      - description: Reset Password Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.ResetPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Reset Password Successful
+          schema:
+            $ref: '#/definitions/v1.ResetPasswordResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Customer Portal Reset Password
+      tags:
+      - OAuth
+  /api/main/v1/auth/employee/account-activation/checker:
+    post:
+      consumes:
+      - application/json
+      description: Tms Employee Account activation.
+      parameters:
+      - description: Account Activation Checker Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.EmployeeAccountActivationCheckerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account Activation Checker Successful
+          schema:
+            $ref: '#/definitions/v1.EmployeeAccountActivationCheckerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Tms Employee Account activation
+      tags:
+      - Registration
+  /api/main/v1/auth/employee/account-activation/token-checker:
+    post:
+      consumes:
+      - application/json
+      description: Employee Account Activation token checker for check token code
+        is availabe or not.
+      parameters:
+      - description: Employee Account Activation Token Checker Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.AccountActivationTokenCheckerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Employee Account Activation Token Checker Request Successful
+          schema:
+            $ref: '#/definitions/v1.EmployeeAccountActivationTokenCheckerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Employee Account Activation Token Checker
+      tags:
+      - Registration
+  /api/main/v1/auth/employee/login:
+    post:
+      consumes:
+      - application/json
+      description: Authenticates users and provides an access token upon successful
+        authentication.
+      parameters:
+      - description: Login Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login Successful
+          schema:
+            $ref: '#/definitions/v1.TmsLoginResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: employee user login
+      tags:
+      - OAuth
+  /api/main/v1/auth/employee/me:
+    get:
+      consumes:
+      - application/json
+      description: Get Profile User
+      parameters:
+      - description: App ID
+        in: header
+        name: x-app-id
+        required: true
+        type: string
+      - description: User ID
+        format: uuid
+        in: header
+        name: x-user-id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get Profile User Successful
+          schema:
+            $ref: '#/definitions/v1.GetProfileUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get Profile User
+      tags:
+      - OAuth
+  /api/main/v1/auth/employee/reset-password:
+    post:
+      consumes:
+      - application/json
+      description: Employee Reset Password.
+      parameters:
+      - description: Reset Password Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.ResetPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Reset Password Successful
+          schema:
+            $ref: '#/definitions/v1.ResetPasswordResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Employee Reset Password
+      tags:
+      - OAuth
+  /api/main/v1/auth/external-employee/account-activation:
+    post:
+      consumes:
+      - application/json
+      description: Tms External Employee Account activation.
+      parameters:
+      - description: Account Activation Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.ExternalEmployeeAccountActivationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account Activation Successful
+          schema:
+            $ref: '#/definitions/v1.ExternalEmployeeAccountActivationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: External Server Error
+          schema:
+            type: string
+      summary: Tms External Employee Account activation
+      tags:
+      - Registration
+  /api/main/v1/auth/internal-employee/account-activation:
+    post:
+      consumes:
+      - application/json
+      description: Tms Internal Employee Account activation.
+      parameters:
+      - description: Account Activation Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.InternalEmployeeAccountActivationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account Activation Successful
+          schema:
+            $ref: '#/definitions/v1.InternalEmployeeAccountActivationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Tms Internal Employee Account activation
+      tags:
+      - Registration
+  /api/main/v1/auth/registration/external:
+    post:
+      consumes:
+      - application/json
+      description: Customer Portal registration.
+      parameters:
+      - description: Registration Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.CpRegistrationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Registration Successful
+          schema:
+            $ref: '#/definitions/v1.CpRegistrationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/bluebird_tech_kirim_protobuf_auth_v1.ResponseStatus'
+      summary: Customer Portal registration
+      tags:
+      - Registration
+  /api/main/v1/auth/reset-password/generate-link:
+    post:
+      consumes:
+      - application/json
+      description: Generate reset password link for user employee and customer portal.
+      parameters:
+      - description: App ID
+        in: header
+        name: x-app-id
+        required: true
+        type: string
+      - description: Generate Reset Password Link Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.GenerateResetPasswordLinkRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Generate Reset Password Link Request Successful
+          schema:
+            $ref: '#/definitions/v1.GenerateResetPasswordLinkResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Generate Reset Password Link
+      tags:
+      - OAuth
+  /api/main/v1/auth/reset-password/token-checker:
+    post:
+      consumes:
+      - application/json
+      description: Reset password token checker for check token code is availabe or
+        not.
+      parameters:
+      - description: App ID
+        in: header
+        name: x-app-id
+        required: true
+        type: string
+      - description: Reset Password Token Checker Link Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.ResetPasswordTokenCheckerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Reset Password Token Checker Link Request Successful
+          schema:
+            $ref: '#/definitions/v1.ResetPasswordTokenCheckerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Reset Password Token Checker Link
+      tags:
+      - OAuth
+  /api/main/v1/cp-role/{cpRoleId}:
+    get:
+      consumes:
+      - application/json
+      description: api for Get Customer Portal Role  by Id
+      parameters:
+      - description: Customer Portal Role Id
+        format: uuid
+        in: path
+        name: cpRoleId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetDetailCpRolesbyIdResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get Customer Portal Role  By Id
+      tags:
+      - Customer Portal - Role
+  /api/main/v1/cp-roles:
+    post:
+      consumes:
+      - application/json
+      description: api for Get list customer portal role
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.GetCpRolesRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetCpRolesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get List Customer Portal Role
+      tags:
+      - Customer Portal - Role
+  /api/main/v1/cp-user/{cpUserId}:
+    get:
+      consumes:
+      - application/json
+      description: api for Get Customer Portal User  by Id
+      parameters:
+      - description: Customer Portal User Id
+        format: uuid
+        in: path
+        name: cpUserId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetDetailCpUsersbyIdResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get Customer Portal User  By Id
+      tags:
+      - Customer Portal - User
+  /api/main/v1/cp-user/{cpUserId}/delete:
+    delete:
+      consumes:
+      - application/json
+      description: api for delete Customer Portal User by Id
+      parameters:
+      - description: User ID
+        format: uuid
+        in: header
+        name: x-user-id
+        required: true
+        type: string
+      - description: Tenant ID
+        format: uuid
+        in: header
+        name: x-tenant-id
+        required: true
+        type: string
+      - description: Customer ID
+        format: uuid
+        in: header
+        name: x-customer-id
+        required: true
+        type: string
+      - description: Customer Portal User Id
+        format: uuid
+        in: path
+        name: cpUserId
+        required: true
+        type: string
+      - description: delete data for customer portal user
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.DeleteCpUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.DeleteCpUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Delete Customer Portal User
+      tags:
+      - Customer Portal - User
+  /api/main/v1/cp-user/{cpUserId}/update:
+    put:
+      consumes:
+      - application/json
+      description: api for update customer portal user by id
+      parameters:
+      - description: User ID
+        format: uuid
+        in: header
+        name: x-user-id
+        required: true
+        type: string
+      - description: Tenant ID
+        format: uuid
+        in: header
+        name: x-tenant-id
+        required: true
+        type: string
+      - description: Customer ID
+        format: uuid
+        in: header
+        name: x-customer-id
+        required: true
+        type: string
+      - description: Customer Portal User Id
+        format: uuid
+        in: path
+        name: cpUserId
+        required: true
+        type: string
+      - description: Update data for customer portal user
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.UpdateCpUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.UpdateCpUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Update Customer Portal User
+      tags:
+      - Customer Portal - User
+  /api/main/v1/cp-user/{cpUserId}/update-profile:
+    put:
+      consumes:
+      - application/json
+      description: api for update personal data cp user by id
+      parameters:
+      - description: User ID
+        format: uuid
+        in: header
+        name: x-user-id
+        required: true
+        type: string
+      - description: Tenant ID
+        format: uuid
+        in: header
+        name: x-tenant-id
+        required: true
+        type: string
+      - description: Customer ID
+        format: uuid
+        in: header
+        name: x-customer-id
+        required: true
+        type: string
+      - description: Cp User Id
+        format: uuid
+        in: path
+        name: cpUserId
+        required: true
+        type: string
+      - description: Update data for cp user
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.UpdatePersonalDataCpUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.UpdatePersonalDataCpUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.UpdatePersonalDataCpUserResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.UpdatePersonalDataCpUserResponse'
+      security:
+      - Bearer: []
+      summary: Update Personal Data Cp User
+      tags:
+      - Customer Portal - User
+  /api/main/v1/cp-user/create:
+    post:
+      consumes:
+      - application/json
+      description: api for create customer portal user
+      parameters:
+      - description: User ID
+        format: uuid
+        in: header
+        name: x-user-id
+        required: true
+        type: string
+      - description: Tenant ID
+        format: uuid
+        in: header
+        name: x-tenant-id
+        required: true
+        type: string
+      - description: Customer ID
+        format: uuid
+        in: header
+        name: x-customer-id
+        required: true
+        type: string
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.CreateCpUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.CreateCpUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Create Customer Portal User
+      tags:
+      - Customer Portal - User
+  /api/main/v1/cp-users:
+    post:
+      consumes:
+      - application/json
+      description: api for Get list customer portal user
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.GetCpUsersRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetCpUsersResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get List Customer Portal User
+      tags:
+      - Customer Portal - User
+  /api/main/v1/oa-customer/{customerId}:
+    get:
+      consumes:
+      - application/json
+      description: api for Get Oa Customer  by Id
+      parameters:
+      - description: Oa Customer Id
+        format: uuid
+        in: path
+        name: customerId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetOaCustomersbyIdResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get Oa Customer  By Id
+      tags:
+      - Oa Customer
+  /api/main/v1/oa-customer/{customerId}/delete:
+    delete:
+      consumes:
+      - application/json
+      description: api for delete Oa Customer by Id
+      parameters:
+      - description: Oa Customer Id
+        format: uuid
+        in: path
+        name: customerId
+        required: true
+        type: string
+      - description: delete data for oa customer
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.DeleteOaCustomerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.DeleteOaCustomerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.DeleteOaCustomerResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.DeleteOaCustomerResponse'
+      security:
+      - Bearer: []
+      summary: Delete Oa Customer
+      tags:
+      - Oa Customer
+  /api/main/v1/oa-customer/{customerId}/update:
+    put:
+      consumes:
+      - application/json
+      description: api for update oa customer by id
+      parameters:
+      - description: Oa Customer Id
+        format: uuid
+        in: path
+        name: customerId
+        required: true
+        type: string
+      - description: Update data for oa customer
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.UpdateOaCustomerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.OaCustomer'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Update Oa Customer
+      tags:
+      - Oa Customer
+  /api/main/v1/oa-customer/create:
+    post:
+      consumes:
+      - application/json
+      description: api for create oa customer
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.CreateOaCustomerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.CreateOaCustomerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Create Oa Customer
+      tags:
+      - Oa Customer
+  /api/main/v1/oa-customers:
+    post:
+      consumes:
+      - application/json
+      description: api for Get list oa customer
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.GetOaCustomersRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetOaCustomersResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get List Oa Customer
+      tags:
+      - Oa Customer
+  /api/main/v1/permissions/get-by-role:
+    post:
+      consumes:
+      - application/json
+      description: Get permission by role id
+      parameters:
+      - description: App ID
+        in: header
+        name: x-app-id
+        required: true
+        type: string
+      - description: Get User Permission By Role ids Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/v1.RequestGetUserPermissionByRoleIds'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.ResponseGetUserPermissionByRoleIds'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      summary: Get Permission By Role Id
+      tags:
+      - OAuth
+  /api/main/v1/tms-employee-position-to-role/{employeePositionId}:
+    get:
+      consumes:
+      - application/json
+      description: api for Get Tms Employee Position To Role  by Id
+      parameters:
+      - description: Tms Employee Poisition Id
+        format: uuid
+        in: path
+        name: employeePositionId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetTmsEmployeePositionToRoleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get Tms Employee Position To Role  By Id
+      tags:
+      - Tms - Employee Position To Role
+  /api/main/v1/tms-employee-position-to-role/{employeePositionId}/delete:
+    delete:
+      consumes:
+      - application/json
+      description: api for delete Tms Employee Position To Role  by Id
+      parameters:
+      - description: Tms Employee Position To Role  Id
+        format: uuid
+        in: path
+        name: employeePositionId
+        required: true
+        type: string
+      - description: delete data for tms Employee position to role
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.DeleteTmsEmployeePositionToRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.DeleteTmsEmployeePositionToRoleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Delete Tms Employee Position To Role
+      tags:
+      - Tms - Employee Position To Role
+  /api/main/v1/tms-employee-position-to-role/{employeePositionId}/update:
+    put:
+      consumes:
+      - application/json
+      description: api for update tms Employee position to role by id
+      parameters:
+      - description: Tms Employee Position To Role  Id
+        format: uuid
+        in: path
+        name: employeePositionId
+        required: true
+        type: string
+      - description: Update data for tms Employee position to role
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.UpdateTmsEmployeePositionToRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.UpdateTmsEmployeePositionToRoleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Update Tms Employee Position To Role
+      tags:
+      - Tms - Employee Position To Role
+  /api/main/v1/tms-employee-position-to-role/create:
+    post:
+      consumes:
+      - application/json
+      description: api for create tms Employee position to role
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.CreateTmsEmployeePositionToRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.CreateTmsEmployeePositionToRoleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Create Tms Employee Position To Role
+      tags:
+      - Tms - Employee Position To Role
+  /api/main/v1/tms-permissions:
+    post:
+      consumes:
+      - application/json
+      description: api for Get list tms permission
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.GetTmsPermissionsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetTmsPermissionsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Tms Permission
+      tags:
+      - Tms - Permission
+  /api/main/v1/tms-role/{tmsRoleId}:
+    get:
+      consumes:
+      - application/json
+      description: api for Get Tms Role  by Id
+      parameters:
+      - description: Tms Role Id
+        format: uuid
+        in: path
+        name: tmsRoleId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetDetailTmsRolesbyIdResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get Tms Role  By Id
+      tags:
+      - Tms - Role
+  /api/main/v1/tms-role/{tmsRoleId}/delete:
+    delete:
+      consumes:
+      - application/json
+      description: api for delete Tms Role by Id
+      parameters:
+      - description: Tms Role Id
+        format: uuid
+        in: path
+        name: tmsRoleId
+        required: true
+        type: string
+      - description: delete data for tms role
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.DeleteTmsRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.DeleteTmsRoleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.DeleteTmsRoleResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.DeleteTmsRoleResponse'
+      security:
+      - Bearer: []
+      summary: Delete Tms Role
+      tags:
+      - Tms - Role
+  /api/main/v1/tms-role/{tmsRoleId}/update:
+    put:
+      consumes:
+      - application/json
+      description: api for update tms role by id
+      parameters:
+      - description: Tms Role Id
+        format: uuid
+        in: path
+        name: tmsRoleId
+        required: true
+        type: string
+      - description: Update data for tms role
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.UpdateTmsRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.DetailTmsRole'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Update Tms Role
+      tags:
+      - Tms - Role
+  /api/main/v1/tms-role/create:
+    post:
+      consumes:
+      - application/json
+      description: api for create tms role
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.CreateTmsRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.CreateTmsRoleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Create Tms Role
+      tags:
+      - Tms - Role
+  /api/main/v1/tms-roles:
+    post:
+      consumes:
+      - application/json
+      description: api for Get list tms role
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.GetTmsRolesRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetTmsRolesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get List Tms Role
+      tags:
+      - Tms - Role
+  /api/main/v1/tms-user/{tmsUserId}:
+    get:
+      consumes:
+      - application/json
+      description: api for Get Tms User  by Id
+      parameters:
+      - description: Tms User Id
+        format: uuid
+        in: path
+        name: tmsUserId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetDetailTmsUsersbyIdResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get Tms User  By Id
+      tags:
+      - Tms - User
+  /api/main/v1/tms-user/{tmsUserId}/delete:
+    delete:
+      consumes:
+      - application/json
+      description: api for delete Tms User by Id
+      parameters:
+      - description: Tms User Id
+        format: uuid
+        in: path
+        name: tmsUserId
+        required: true
+        type: string
+      - description: delete data for tms user
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.DeleteTmsUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.DeleteTmsUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.DeleteTmsUserResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.DeleteTmsUserResponse'
+      security:
+      - Bearer: []
+      summary: Delete Tms User
+      tags:
+      - Tms - User
+  /api/main/v1/tms-user/{tmsUserId}/update:
+    put:
+      consumes:
+      - application/json
+      description: api for update tms user by id
+      parameters:
+      - description: Tms User Id
+        format: uuid
+        in: path
+        name: tmsUserId
+        required: true
+        type: string
+      - description: Update data for tms user
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.UpdateTmsUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.UpdateTmsUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.UpdateTmsUserResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.UpdateTmsUserResponse'
+      security:
+      - Bearer: []
+      summary: Update Tms User
+      tags:
+      - Tms - User
+  /api/main/v1/tms-user/{tmsUserId}/update-profile:
+    put:
+      consumes:
+      - application/json
+      description: api for update personal data tms user by id
+      parameters:
+      - description: Tms User Id
+        format: uuid
+        in: path
+        name: tmsUserId
+        required: true
+        type: string
+      - description: Update data for tms user
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.UpdatePersonalDataTmsUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.UpdatePersonalDataTmsUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.UpdatePersonalDataTmsUserResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.UpdatePersonalDataTmsUserResponse'
+      security:
+      - Bearer: []
+      summary: Update Personal Data Tms User
+      tags:
+      - Tms - User
+  /api/main/v1/tms-user/create:
+    post:
+      consumes:
+      - application/json
+      description: api for create tms user
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.CreateTmsUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.CreateTmsUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.CreateTmsUserResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.CreateTmsUserResponse'
+      security:
+      - Bearer: []
+      summary: Create Tms User
+      tags:
+      - Tms - User
+  /api/main/v1/tms-users:
+    post:
+      consumes:
+      - application/json
+      description: api for Get list tms user
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/v1.GetTmsUsersRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.GetTmsUsersResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      security:
+      - Bearer: []
+      summary: Get List Tms User
+      tags:
+      - Tms - User
+  /api/main/v1/user/account/{userId}/roles:
+    get:
+      consumes:
+      - application/json
+      description: Get user Roles
+      parameters:
+      - description: App ID
+        in: header
+        name: x-app-id
+        required: true
+        type: string
+      - description: User Id
+        format: uuid
+        in: path
+        name: userId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.ResponseGetUserRoles'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helper.JSONResponse'
+      summary: Get User Roles
+      tags:
+      - OAuth
+security:
+- ApiKeyAuth: []
+securityDefinitions:
+  AppIdAuth:
+    in: header
+    name: app-id
+    type: apiKey
+swagger: "2.0"

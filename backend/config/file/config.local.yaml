@@ -1,0 +1,17 @@
+rdbms:
+  app:
+    dsn: "postgres://postgres:password@localhost:5432/bluebirdauth?sslmode=disable"
+    driver: postgres
+    maxOpenConns: 10
+    maxIdleConns: 10
+    connMaxLifetime: 3000
+    retry: 3
+  
+dbmigrate:
+  app:
+    dsn: "postgres://postgres:password@localhost:5432/bluebirdauth?sslmode=disable"
+    driver: postgres
+
+tracer:
+  jaeger:
+    collectorUrl: "http://localhost:14268/api/traces"

@@ -1,0 +1,179 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: TmsService API
+    version: 0.0.1
+paths:
+    /v1/notes:
+        post:
+            tags:
+                - TmsService
+            operationId: TmsService_CreateNote
+            parameters:
+                - name: title
+                  in: query
+                  schema:
+                    type: string
+                - name: author
+                  in: query
+                  schema:
+                    type: string
+                - name: content
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BaseResponseMessage'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/notes/list:
+        post:
+            tags:
+                - TmsService
+            description: Note
+            operationId: TmsService_GetListNote
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetListNoteFilterDTO'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListNoteVM'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/notes/{note_id}:
+        get:
+            tags:
+                - TmsService
+            operationId: TmsService_GetByIdNote
+            parameters:
+                - name: note_id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/NoteVM'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+components:
+    schemas:
+        BaseListRequest:
+            type: object
+            properties:
+                keyword:
+                    type: string
+                takeAll:
+                    type: boolean
+                take:
+                    type: integer
+                    format: int32
+                skip:
+                    type: integer
+                    format: int32
+            description: Req Res Need
+        BaseResponseMessage:
+            type: object
+            properties:
+                message:
+                    type: string
+        GetListNoteFilterDTO:
+            type: object
+            properties:
+                pagination:
+                    $ref: '#/components/schemas/BaseListRequest'
+                filter:
+                    $ref: '#/components/schemas/Note'
+            description: Note DTO
+        GoogleProtobufAny:
+            type: object
+            properties:
+                '@type':
+                    type: string
+                    description: The type of the serialized message.
+            additionalProperties: true
+            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        ListNoteVM:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Note'
+                total:
+                    type: integer
+                    format: int32
+                take:
+                    type: integer
+                    format: int32
+                skip:
+                    type: integer
+                    format: int32
+                take_all:
+                    type: boolean
+        Note:
+            type: object
+            properties:
+                note_id:
+                    type: string
+                title:
+                    type: string
+                author:
+                    type: string
+                content:
+                    type: string
+            description: '------------------- Note Start ---------------------'
+        NoteVM:
+            type: object
+            properties:
+                data:
+                    $ref: '#/components/schemas/Note'
+            description: Product ResDTO / VM
+        Status:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+                    format: int32
+                message:
+                    type: string
+                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GoogleProtobufAny'
+                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+tags:
+    - name: TmsService

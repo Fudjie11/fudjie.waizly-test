@@ -1,0 +1,86 @@
+server:
+  grpc:
+    port: 6011
+  rest:
+    listenAddress: "0.0.0.0"
+    port: 6010
+    enableSwagger: true
+    defaultTimeout: 10000
+    readTimeout: 10000
+    writeTimeout: 10000
+
+rdbms:
+  app:
+    dsn: "postgres://postgres:password@localhost:5432/testauth?sslmode=disable"
+    driver: postgres
+    maxOpenConns: 10
+    maxIdleConns: 10
+    connMaxLifetime: 3000
+    retry: 3
+  
+dbmigrate:
+  app:
+    dsn: "postgres://postgres:password@localhost:5432/testauth?sslmode=disable"
+    driver: postgres
+
+redis:
+  # host: "localhost"
+  # port: 6379
+  # username: ""
+  # password: ""
+  # db: 0
+  host: "bluebirdkirim.staging.clodeo.tech"
+  port: 6379
+  username: "default"
+  password: "AeRaYcIbwiJjZtfQkLyE"
+  db: 0
+  
+pubsub:
+  projectId: "pubsubfuc"
+  authJsonPath: "assets/pubsub-credential.json"
+  publisherList:
+  subscriberList:
+  enabled: true
+
+keycloak:
+  baseUrl: "https://dev-bbauth.bluebird.id"
+  internalEmployeeRealm: "BBG"
+  internalEmployeeClientId: "lastmile-logistic"
+  internalEmployeeClientSecret: "0tuT1IQfbfiKTamsgWh6vH1oZcdPdpTA"
+  externalEmployeeRealm: "logistic"
+  externalEmployeeClientId: "lastmile-logistic"
+  externalEmployeeClientSecret: "HELbmQ0w2H4myIL5Ix4MD4ezCZRqWBMG"
+  customerPortalRealm: "logistic-customer"
+  customerPortalClientId: "tms-admin"
+  customerPortalClientSecret: "2zRRcBq4An8YUnHAkuvo4CVNWWAfE5wI"
+
+rpc:
+  tmsMasterDataServiceClientConfig:
+    host: "localhost"
+    port: 6012
+    defaultTimeout: 15000
+    connectParams:
+      minConnectTimeout: 10000 
+      backoff:
+        baseDelay: 1
+        multiplier: 1.6
+        jitter: 0.2
+        maxDelay: 120000  
+  customerPortalServiceClientConfig:
+    host: "localhost"
+    port: 8090
+    defaultTimeout: 15000
+    connectParams:
+      minConnectTimeout: 10000 
+      backoff:
+        baseDelay: 1
+        multiplier: 1.6
+        jitter: 0.2
+        maxDelay: 120000  
+tracer:
+  jaeger:
+    collectorUrl: "http://localhost:14268/api/traces"
+
+app:
+  tmsUrl: "http://bluebirdkirim.staging.clodeo.tech:5000"
+  customerPortalUrl: "http://bluebirdkirim.staging.clodeo.tech:5050"
