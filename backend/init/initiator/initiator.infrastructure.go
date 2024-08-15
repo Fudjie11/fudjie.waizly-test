@@ -18,7 +18,6 @@ import (
 
 var (
 	errInitRdbms          = "failed to initiate RDBMS"
-	errInitSnowflake      = "failed to initiate Snowflake generator"
 	errFInitMessageBroker = "failed to initiate Message Broker : %s"
 	errFInitTracer        = "failed to initiate Tracer : %s"
 )

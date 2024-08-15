@@ -2,12 +2,8 @@ module fudjie.waizly/backend-test
 
 go 1.21.6
 
-replace clodeo.tech/public/go-universe => ../clodeo-golang-universe
-
-replace bluebird.tech/kirim/protobuf => ../protobuf
 
 require (
-	bluebird.tech/kirim/protobuf v0.0.0-00010101000000-000000000000
 	clodeo.tech/public/go-universe v0.0.0-00010101000000-000000000000
 	github.com/Nerzal/gocloak/v13 v13.9.0
 	github.com/arsmn/fiber-swagger/v2 v2.31.1
@@ -27,7 +23,6 @@ require (
 	golang.org/x/exp v0.0.0-20231214170342-aacd6d4b4611
 	golang.org/x/sync v0.6.0
 	google.golang.org/grpc v1.64.0
-	google.golang.org/protobuf v1.34.1
 )
 
 require (
@@ -56,7 +51,6 @@ require (
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang-jwt/jwt/v5 v5.0.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/s2a-go v0.1.7 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.2 // indirect

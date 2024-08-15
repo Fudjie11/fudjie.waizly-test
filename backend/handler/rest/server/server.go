@@ -10,7 +10,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 
-	tmsRoleRouter "fudjie.waizly/backend-test/internal/app/main/v1/tms_role/rest/router"
+	employeeRouter "fudjie.waizly/backend-test/internal/app/main/v1/employee/rest/router"
 )
 
 type Options struct {
@@ -55,5 +55,5 @@ func (s *Server) initRoutes(srv *fiber.App) {
 	httpMiddleware := s.Service.Middleware.HttpMiddleware
 	restHandler := s.Service.RESTHandler
 
-	tmsRoleRouter.Configure(apiMainV1, httpMiddleware, restHandler.TmsRoleRestHandler)
+	employeeRouter.Configure(apiMainV1, httpMiddleware, restHandler.EmployeeRestHandler)
 }

@@ -4,17 +4,17 @@ import (
 	"fudjie.waizly/backend-test/config"
 	"fudjie.waizly/backend-test/init/service"
 
-	tmsRoleUsecase "fudjie.waizly/backend-test/internal/domain/tms_role/usecase"
+	employeeUsecase "fudjie.waizly/backend-test/internal/domain/employee/usecase"
 )
 
 func (i *Initiator) InitUsecase(cfg *config.MainConfig, infra *service.Infrastructure, repos *service.Repositories) *service.Usecases {
 
-	tmsRoleUseCase := tmsRoleUsecase.New(&tmsRoleUsecase.Opts{
-		SqlDbManager:      infra.SqldbManager,
-		TmsRoleRepository: repos.TmsRoleRepository,
+	employeeUseCase := employeeUsecase.New(&employeeUsecase.Opts{
+		SqlDbManager:       infra.SqldbManager,
+		EmployeeRepository: repos.EmployeeRepository,
 	})
 
 	return &service.Usecases{
-		TmsRoleUseCase: tmsRoleUseCase,
+		EmployeeUseCase: employeeUseCase,
 	}
 }

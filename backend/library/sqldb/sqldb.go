@@ -14,10 +14,9 @@ import (
 type DBEngine string
 
 const (
-	Postgres  DBEngine = "postgres"
-	Mysql     DBEngine = "mysql"
-	Mariadb   DBEngine = "mysql"
-	Snowflake DBEngine = "snowflake"
+	Postgres DBEngine = "postgres"
+	Mysql    DBEngine = "mysql"
+	Mariadb  DBEngine = "mysql"
 )
 
 type DBConfig struct {

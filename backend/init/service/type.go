@@ -3,12 +3,12 @@ package service
 import (
 	"fudjie.waizly/backend-test/config"
 
-	tmsRoleHandlerRest "fudjie.waizly/backend-test/internal/app/main/v1/tms_role/rest/handler"
-	tmsRoleRepository "fudjie.waizly/backend-test/internal/domain/tms_role/repository"
-	tmsRoleUseCase "fudjie.waizly/backend-test/internal/domain/tms_role/usecase"
-
 	// MIDDLEWARE
 	middleware "fudjie.waizly/backend-test/internal/middleware"
+
+	employeeHandlerRest "fudjie.waizly/backend-test/internal/app/main/v1/employee/rest/handler"
+	employeeRepository "fudjie.waizly/backend-test/internal/domain/employee/repository"
+	employeeUseCase "fudjie.waizly/backend-test/internal/domain/employee/usecase"
 
 	"fudjie.waizly/backend-test/library/sqldb"
 )
@@ -19,15 +19,15 @@ type Infrastructure struct {
 }
 
 type Repositories struct {
-	tmsRoleRepository.TmsRoleRepository
+	employeeRepository.EmployeeRepository
 }
 
 type Usecases struct {
-	tmsRoleUseCase.TmsRoleUseCase
+	employeeUseCase.EmployeeUseCase
 }
 
 type RESTHandler struct {
-	tmsRoleHandlerRest.TmsRoleRestHandler
+	employeeHandlerRest.EmployeeRestHandler
 }
 
 type RESTService struct {
@@ -39,7 +39,7 @@ type RESTService struct {
 }
 
 type Middleware struct {
-	HttpMiddleware middleware.HttpMiddleware
+	HttpMiddleware middleware.RestMiddleware
 }
 
 type MessageBrokerHandler struct {

@@ -1,17 +1,20 @@
 package model
 
+import (
+	"fmt"
+	"strings"
+)
+
+type PaginationAndSearch struct {
+	Limit  int32  `bson:"limit" json:"limit"`
+	Offset int32  `bson:"offset" json:"offset"`
+	Search string `bson:"search" json:"search"`
+}
+
 type Pagination struct {
 	TotalRows int32 `bson:"total_rows" json:"total_rows"`
 	Limit     int32 `bson:"limit" json:"limit"`
 	Offset    int32 `bson:"offset" json:"offset"`
-	Page      int32 `bson:"page" json:"page"`
-}
-
-type ListPagingWithoutTotalRows[T any] struct {
-	Data   []T `bson:"data" json:"data"`
-	Limit  int `bson:"limit" json:"limit"`
-	Offset int `bson:"offset" json:"offset"`
-	Page   int `bson:"page" json:"page"`
 }
 
 type ListPaging[T any] struct {
@@ -19,10 +22,29 @@ type ListPaging[T any] struct {
 	Pagination Pagination `db:"pagination" json:"pagination"`
 }
 
-func NewListPaging[T any](data []T, totalRows int, limit, offset, page *int) ListPaging[T] {
+func (pg PaginationAndSearch) BuildPaginationAndSearchQuery(includeSearch bool) string {
+	var (
+		sb              strings.Builder
+		paginationQuery string
+		whereQuery      string
+	)
 
+	if includeSearch {
+		whereQuery = ` WHERE LOWER(name) LIKE ('%' || LOWER(?) || '%') `
+	}
+
+	if pg.Limit > 0 {
+		paginationQuery = fmt.Sprintf("LIMIT %d OFFSET %d", pg.Limit, pg.Offset)
+	}
+
+	sb.WriteString(whereQuery)
+	sb.WriteString(paginationQuery)
+
+	return sb.String()
+}
+
+func NewListPaging[T any](data []T, totalRows int32, limit int32, offset int32) ListPaging[T] {
 	var defLimit int32 = 10
-	var defPage int32 = 1
 	var defOffset int32 = 0
 
 	result := ListPaging[T]{
@@ -31,19 +53,11 @@ func NewListPaging[T any](data []T, totalRows int, limit, offset, page *int) Lis
 			TotalRows: int32(totalRows),
 			Limit:     defLimit,
 			Offset:    defOffset,
-			Page:      defPage,
 		},
 	}
 
-	if limit != nil {
-		result.Pagination.Limit = int32(*limit)
-	}
-	if offset != nil {
-		result.Pagination.Offset = int32(*offset)
-	}
-	if page != nil {
-		result.Pagination.Page = int32(*page)
-	}
+	result.Pagination.Limit = int32(limit)
+	result.Pagination.Offset = int32(offset)
 
 	return result
 }

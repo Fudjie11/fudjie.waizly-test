@@ -29,7 +29,7 @@ var MigrationCommand = &cobra.Command{
 var (
 	flags      = flag.NewFlagSet("db", flag.ExitOnError)
 	configPath = flags.String("config", "config/file", "Config URL dir i.e. config/file")
-	dir        = flags.String("dir", "internal/db/auth/migration", "directory with migration files")
+	dir        = flags.String("dir", "internal/db/migration", "directory with migration files")
 )
 
 var (

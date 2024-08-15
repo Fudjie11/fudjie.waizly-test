@@ -2,9 +2,10 @@ package main
 
 import "fudjie.waizly/backend-test/cmd"
 
-// @title Transport Management System
-// @description Transport Management System.
+// @title Fudjie Pangestu Test Waizly Backend
+// @description Fudjie Pangestu Test Waizly Backend.
 
+// @securityDefinitions.basic  BasicAuth
 func main() {
 	cmd.Execute()
 }

@@ -26,7 +26,7 @@ type InitiatorManager interface {
 	InitUsecase(cfg *config.MainConfig, infra *service.Infrastructure, repos *service.Repositories) *service.Usecases
 	InitRESTHandler(cfg *config.MainConfig, infra *service.Infrastructure, uc *service.Usecases) *service.RESTHandler
 	InitRESTService(cfg *config.MainConfig, infra *service.Infrastructure, middleware *service.Middleware, hdl *service.RESTHandler, uc *service.Usecases) *service.RESTService
-	InitMiddleware() *service.Middleware
+	InitMiddleware(cfg *config.MainConfig) *service.Middleware
 }
 
 type Initiator struct {

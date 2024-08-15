@@ -21,13 +21,13 @@ var (
 		PersistentPreRun: rootRESTPreRun,
 		RunE:             runREST,
 	}
-	serviceName = fmt.Sprintf("%s-bluebird.tech/tms-rest", env.GetEnvironmentName())
+	serviceName = fmt.Sprintf("%s-waizly-backend/rest", env.GetEnvironmentName())
 )
 
 func rootRESTPreRun(cmd *cobra.Command, args []string) {
 	// initiate logger
 	logger.InitGlobalLogger(&logger.Config{
-		ServiceName: "bluebird-tms",
+		ServiceName: "waizly-backend",
 		Level:       zerolog.DebugLevel,
 	})
 }

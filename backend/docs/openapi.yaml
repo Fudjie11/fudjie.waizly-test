@@ -3,14 +3,14 @@
 
 openapi: 3.0.3
 info:
-    title: TmsService API
+    title: EmployeeService API
     version: 0.0.1
 paths:
     /v1/notes:
         post:
             tags:
-                - TmsService
-            operationId: TmsService_CreateNote
+                - EmployeeService
+            operationId: EmployeeService_CreateNote
             parameters:
                 - name: title
                   in: query
@@ -40,9 +40,9 @@ paths:
     /v1/notes/list:
         post:
             tags:
-                - TmsService
+                - EmployeeService
             description: Note
-            operationId: TmsService_GetListNote
+            operationId: EmployeeService_GetListNote
             requestBody:
                 content:
                     application/json:
@@ -65,8 +65,8 @@ paths:
     /v1/notes/{note_id}:
         get:
             tags:
-                - TmsService
-            operationId: TmsService_GetByIdNote
+                - EmployeeService
+            operationId: EmployeeService_GetByIdNote
             parameters:
                 - name: note_id
                   in: path
@@ -176,4 +176,4 @@ components:
                     description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
             description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
 tags:
-    - name: TmsService
+    - name: EmployeeService

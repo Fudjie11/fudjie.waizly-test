@@ -32,10 +32,6 @@ func getAppData(cRequestData any) map[string]interface{} {
 
 	mRequestData := cRequestData.(iModel.ContextAppData)
 	appData["LanguageId"] = mRequestData.LanguageId
-	appData["AppId"] = mRequestData.AppId
-	appData["UserId"] = mRequestData.UserId
-	appData["TenantId"] = mRequestData.TenantId
-	appData["CustomerId"] = mRequestData.CustomerId
 	appData["TimeZoneId"] = mRequestData.TimeZoneId
 	appData["TimeZoneOffset"] = mRequestData.TimeZoneOffset
 

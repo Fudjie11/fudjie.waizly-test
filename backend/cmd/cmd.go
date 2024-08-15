@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"fudjie.waizly/backend-test/cmd/database"
 	"fudjie.waizly/backend-test/cmd/http"
 
 	"github.com/spf13/cobra"
@@ -11,7 +12,7 @@ import (
 
 var (
 	rootCmd = &cobra.Command{
-		Use:   "bluebird-tms",
+		Use:   "waizly-backend",
 		Short: "Services",
 		Long:  "Services",
 	}
@@ -19,7 +20,7 @@ var (
 
 func Execute() {
 	//Register command
-	rootCmd.AddCommand(http.ServeHTTPCmd())
+	rootCmd.AddCommand(http.ServeHTTPCmd(), database.MigrationCommand)
 
 	http.ServeHTTPCmd().Flags().StringP("config", "c", "config/file", "Config dir i.e. config/file")
 

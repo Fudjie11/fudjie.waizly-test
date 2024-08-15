@@ -44,7 +44,7 @@ func (a *assembler) BuildService(configPath string, serviceName string) Assemble
 	infra := a.Initiator.InitInfrastructure(cfg)
 	repo := a.Initiator.InitRepository(cfg, infra)
 	uc := a.Initiator.InitUsecase(cfg, infra, repo)
-	middleware := a.Initiator.InitMiddleware()
+	middleware := a.Initiator.InitMiddleware(cfg)
 
 	hdlr := a.Initiator.InitRESTHandler(cfg, infra, uc)
 	restsvc := a.Initiator.InitRESTService(cfg, infra, middleware, hdlr, uc)

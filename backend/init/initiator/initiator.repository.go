@@ -4,16 +4,16 @@ import (
 	"fudjie.waizly/backend-test/config"
 	"fudjie.waizly/backend-test/init/service"
 
-	tmsRoleRepo "fudjie.waizly/backend-test/internal/domain/tms_role/repository"
+	employeeRepo "fudjie.waizly/backend-test/internal/domain/employee/repository"
 )
 
 func (i *Initiator) InitRepository(cfg *config.MainConfig, infra *service.Infrastructure) *service.Repositories {
 
-	tmsRoleRepository := tmsRoleRepo.New(&tmsRoleRepo.Opts{
+	employeeRepository := employeeRepo.New(&employeeRepo.Opts{
 		SqlDbManager: infra.SqldbManager,
 	})
 
 	return &service.Repositories{
-		TmsRoleRepository: tmsRoleRepository,
+		EmployeeRepository: employeeRepository,
 	}
 }
