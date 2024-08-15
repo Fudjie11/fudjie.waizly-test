@@ -2,7 +2,6 @@ package repository
 
 import (
 	"context"
-	"fmt"
 	"strings"
 
 	"github.com/google/uuid"
@@ -34,6 +33,8 @@ func (m *Module) GetEmployees(ctx context.Context, pg iModel.PaginationAndSearch
 	sb.WriteString(pg.BuildPaginationAndSearchQuery(true))
 
 	qResult := m.sqlDbManager.Store().Rebind(sb.String())
+	log.Info().Msg(qResult)
+
 	err := m.sqlDbManager.Store().SelectContext(ctx, &resultData, qResult, pg.Search)
 	if err != nil {
 		log.Err(err).Msg(err.Error())
@@ -54,7 +55,10 @@ func (m *Module) GetEmployeeTotalRows(ctx context.Context, pg iModel.PaginationA
 	sb.WriteString(q)
 	sb.WriteString(pg.BuildPaginationAndSearchQuery(false))
 
-	err := m.sqlDbManager.Store().GetContext(ctx, &resultData, q)
+	qResult := m.sqlDbManager.Store().Rebind(sb.String())
+	log.Info().Msg(qResult)
+
+	err := m.sqlDbManager.Store().GetContext(ctx, &resultData, qResult)
 	if err != nil {
 		log.Err(err).Msg(err.Error())
 		return 0, helper.NewSqlErr(err)
@@ -66,7 +70,7 @@ func (m *Module) GetEmployeeTotalRows(ctx context.Context, pg iModel.PaginationA
 func (m *Module) GetEntityEmployeeByEmployeeId(ctx context.Context, employeeId uuid.UUID) (*entity.Employee, error) {
 	var resultData = &entity.Employee{}
 
-	q := fmt.Sprintf(`select
+	q := `select
 			employee_id,
 			name,
 			job_title,
@@ -74,7 +78,7 @@ func (m *Module) GetEntityEmployeeByEmployeeId(ctx context.Context, employeeId u
 			department,
 			joined_date
 		from public.employee
-		where employee_id=$1`)
+		where employee_id=$1`
 
 	log.Info().Msg(q)
 

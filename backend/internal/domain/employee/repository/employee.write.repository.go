@@ -22,6 +22,7 @@ func (m *Module) CreateEmployee(ctx context.Context, data *entity.Employee) erro
 	VALUES (?,?,?,?,?,?);`
 
 	q := m.sqlDbManager.Store().Rebind(queryInsertEmployee)
+	log.Info().Msg(q)
 	_, err := m.sqlDbManager.Store().ExecContext(ctx, q,
 		data.EmployeeId,
 		data.Name,

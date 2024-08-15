@@ -34,7 +34,7 @@ func (pg PaginationAndSearch) BuildPaginationAndSearchQuery(includeSearch bool) 
 	}
 
 	if pg.Limit > 0 {
-		paginationQuery = fmt.Sprintf("LIMIT %d OFFSET %d", pg.Limit, pg.Offset)
+		paginationQuery = fmt.Sprintf(" LIMIT %d OFFSET %d", pg.Limit, pg.Offset)
 	}
 
 	sb.WriteString(whereQuery)
